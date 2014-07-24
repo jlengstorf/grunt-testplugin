@@ -37,46 +37,23 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
+#### options.note
 Type: `String`
-Default value: `',  '`
+Default value: `/* Inserted using a Grunt plugin */`
 
-A string value that is used to do something with whatever.
-
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
-
-A string value that is used to do something else with whatever else.
+A string value that is inserted at the top of the targeted file(s).
 
 ### Usage Examples
 
 #### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+In this example, the default options are used to insert a comment at the top of `test.js`.
 
 ```js
 grunt.initConfig({
   testplugin: {
     options: {},
     files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  testplugin: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+      'dest/test_noted.js': 'src/test.js',
     },
   },
 });
